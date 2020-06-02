@@ -8,7 +8,7 @@ if [ ! -f .env ]; then
     exit 1
 fi
 
-composer install
+composer update
 yarn
 php artisan key:generate
 php artisan migrate
