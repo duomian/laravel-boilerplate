@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# stop on first error
+set -e
+
+if [ ! -f .env ]; then
+    echo ".env 文件不存在！"
+    exit 1
+fi
+
+composer install
+yarn
+php artisan key:generate
+php artisan migrate
+# php artisan db:seed
+# php artisan storage:link
